@@ -31,3 +31,5 @@ Route::get('/services', 'PagesController@services');
 // Route::get('/users/{id}/{name}', function($id,$name){
 //     return 'This is user name "'.$name.'"within id number :'.$id;
 // });
+
+Route::resource('posts','PostsController');
