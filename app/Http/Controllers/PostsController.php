@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// Use Eloquent
+use App\Post;
+// Use SQL qurry by bringing DB Librely
+use  DB;
 
 class PostsController extends Controller
 {
@@ -13,7 +17,31 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+
+        // // // Use SQL qurry
+        // // $posts = DB::select('SELECT * FROM posts');
+        // // Order by 
+        // $posts = DB::select('SELECT * FROM posts ORDER BY title DESC');
+
+
+        // // // // // Use Eloquent
+        // // // // $posts = Post::all();
+        // // // // Order by 
+        // // // $posts = Post::orderBy('title', 'desc')->get();
+        // // // specified
+        // // return post::where('title', 'Post Two')->get();
+        // // Just take 1 
+        // $posts = Post::orderBy('title', 'desc')->take(1)->get();
+        // paginate (number the page)
+        $posts = Post::orderBy('title', 'desc')->paginate(10);
+
+        
+
+;
+
+
+        // Load the view
+        return view ('posts.index')->with('posts',$posts);
     }
 
     /**
@@ -45,7 +73,10 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        //fatche it with database "Eloquent"
+        return Post::find($id);
+        // return the view
+        return view ('posts.show')->with('post', $post);
     }
 
     /**
