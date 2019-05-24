@@ -73,9 +73,11 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //fatche it with database "Eloquent"
-        return Post::find($id);
+        // //fatche it with database "Eloquent"
+        // return Post::find($id);
+
         // return the view
+        $post = Post::find($id);
         return view ('posts.show')->with('post', $post);
     }
 
