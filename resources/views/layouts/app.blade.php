@@ -9,6 +9,8 @@
     <body>
       @include('inc.navbar')
       <div class="container">
+        {{-- includ the messagess --}}
+        @include('inc.messages')
         @yield('content') 
       </div>
     </body>
