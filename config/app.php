@@ -162,6 +162,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        //Add new provider to the providers(LaravelCollective Forms & HTML)
+        Collective\Html\HtmlServiceProvider::class,
+
+
         /*
          * Package Service Providers...
          */
@@ -225,6 +229,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        //Add  two class aliases to the aliases(LaravelCollective Forms & HTML)
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

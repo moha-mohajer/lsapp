@@ -51,7 +51,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        //Load up the view
+        return view('posts.create');
     }
 
     /**
