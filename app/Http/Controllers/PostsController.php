@@ -83,7 +83,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        // //fatche it with database "Eloquent"
+        //fatche it with database "Eloquent"
         // return Post::find($id);
 
         // return the view
@@ -99,7 +99,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+       // return the view
+       $post = Post::find($id);
+       return view ('posts.edit')->with('post', $post);
     }
 
     /**
@@ -111,7 +113,20 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validation of input data
+        $this->validate($request,[
+            'title' =>'required',
+            'body' =>'required'
+        ]);
+
+        // Update post
+        $post = Post::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        // redirect with success message
+        return redirect('/posts')->with('success', 'Post Updated');
     }
 
     /**
