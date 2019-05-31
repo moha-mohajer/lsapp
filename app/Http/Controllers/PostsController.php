@@ -33,12 +33,7 @@ class PostsController extends Controller
         // // Just take 1 
         // $posts = Post::orderBy('title', 'desc')->take(1)->get();
         // paginate (number the page)
-        $posts = Post::orderBy('title', 'desc')->paginate(10);
-
-        
-
-;
-
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
 
         // Load the view
         return view ('posts.index')->with('posts',$posts);
