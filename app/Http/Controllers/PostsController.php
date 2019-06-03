@@ -137,6 +137,11 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Update delete
+        $post = Post::find($id);
+        $post->delete();
+
+        // redirect with success message
+        return redirect('/posts')->with('success', 'Post Updated');
     }
 }
