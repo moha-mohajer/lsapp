@@ -7,7 +7,7 @@
         <div class="well">
             <p>
               <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-              <small>Writen on {{$post->created_at}}</small>
+              <small>Writen on {{$post->created_at}} by {{$post->user->name}}</small>
             </p><br>
         </div>
     @endforeach

@@ -68,6 +68,8 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        // Add loged in user id to the tabale
+        $post->user_id = auth()->user()->id;
         $post->save();
 
         // redirect with success message
